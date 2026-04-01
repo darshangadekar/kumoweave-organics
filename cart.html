@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart — Kumoweave Organics</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cart-grid {
+      max-width: var(--container); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 350px; gap: 60px;
+    }
+    .cart-list { border-top: 1px solid rgba(0,0,0,0.05); }
+    .cart-item {
+      display: flex; align-items: center; gap: 30px; padding: 30px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .cart-item img { width: 100px; height: 120px; object-fit: cover; border-radius: var(--radius-md); }
+    .cart-summary {
+      background: rgba(122, 92, 62, 0.03); padding: 40px; border-radius: var(--radius-lg); height: fit-content;
+    }
+    .summary-row { display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: 500; }
+    #cart-items-container:empty::before { content: 'Your cart is currently empty.'; display: block; padding: 40px 0; opacity: 0.5; }
+  </style>
+</head>
+<body style="overflow: hidden;">
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="logo.png" alt="Kumoweave Logo" class="preloader-logo">
+  </div>
+
+  <!-- Mobile Nav Drawer -->
+
+  <div class="mobile-nav">
+    <a href="new-arrivals.html">New Arrivals</a>
+    <a href="baby.html">Baby (0–2Y)</a>
+    <a href="toddler.html">Toddler (2–5Y)</a>
+    <a href="about.html">About</a>
+    <a href="journal.html">Journal</a>
+    <div style="margin-top: 20px; font-size: 1rem; color: var(--brand-secondary);">
+      Cart (<span id="mobile-cart-count">0</span>)
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="baby.html">Baby (0–2Y)</a></li>
+        <li><a href="toddler.html">Toddler (2–5Y)</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="journal.html">Journal</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-trigger active">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <section style="padding-top: 160px; min-height: 80vh;">
+    <h1 style="max-width: var(--container); margin: 0 auto 60px; font-size: 3rem;">Shopping Cart</h1>
+    
+    <div class="cart-grid">
+      <div class="cart-list">
+        <div id="cart-items-container"></div>
+      </div>
+      
+      <div class="cart-summary">
+        <h3>Order Summary</h3>
+        <div style="margin-top: 30px;">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">₹0</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="shipping">₹0</span>
+          </div>
+          <div class="summary-row" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px; font-size: 1.25rem;">
+            <span>Total</span>
+            <span id="total">₹0</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" style="width: 100%; margin-top: 30px;" onclick="checkout()">Checkout Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Logo"></div>
+        <p style="opacity: 0.7; font-size: 0.9rem;">Kids-wear crafted with love from 100% GOTS-certified organic cotton. Gentle on little skin, kind to our planet.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="new-arrivals.html">New Arrivals</a></li>
+          <li><a href="baby.html">Baby (0–2Y)</a></li>
+          <li><a href="toddler.html">Toddler (2–5Y)</a></li>
+          <li><a href="new-arrivals.html">Cozy Knits</a></li>
+          <li><a href="new-arrivals.html">Gift Sets</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="about.html#gots">GOTS Certification</a></li>
+          <li><a href="about.html#sustainability">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="newsletter">
+        <h3>Join the Kumoweave Family</h3>
+        <p style="opacity: 0.7; font-size: 0.85rem; margin-bottom: 20px;">Exclusive drops, care tips & more.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!')">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div style="max-width: 1280px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); text-align: center; font-size: 0.75rem; opacity: 0.5;">
+      © 2026 Kumoweave Organics. All rights reserved. Made with organic love.
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    function renderCartPage() {
+      const container = document.getElementById('cart-items-container');
+      const cart = JSON.parse(localStorage.getItem('kumoweave_cart')) || [];
+      
+      let subtotal = 0;
+      container.innerHTML = cart.map((item, index) => {
+        subtotal += item.price * item.qty;
+        return `
+          <div class="cart-item">
+            <img src="${item.img}" alt="${item.name}">
+            <div style="flex: 1;">
+              <h3 style="font-size: 1.25rem; font-family: sans-serif; font-weight: 600;">${item.name}</h3>
+              <p style="opacity: 0.6; font-size: 0.9rem;">Quantity: ${item.qty}</p>
+            </div>
+            <div style="font-weight: 600; font-size: 1.1rem;">₹${(item.price * item.qty).toLocaleString('en-IN')}</div>
+            <button style="color: rgba(0,0,0,0.3); font-size: 1.25rem;" onclick="remove(${index})">✕</button>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('subtotal').textContent = '₹' + subtotal.toLocaleString('en-IN');
+      const shipping = subtotal > 999 ? 0 : 99;
+      document.getElementById('shipping').textContent = shipping === 0 ? 'FREE' : '₹' + shipping;
+      document.getElementById('total').textContent = '₹' + (subtotal + shipping).toLocaleString('en-IN');
+    }
+
+    function remove(index) {
+      let cart = JSON.parse(localStorage.getItem('kumoweave_cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('kumoweave_cart', JSON.stringify(cart));
+      renderCartPage();
+      updateCartUI(cart);
+    }
+
+    function checkout() {
+      alert("Launching Soon! Checkout is not available yet.");
+    }
+
+    renderCartPage();
+  </script>
+</body>
+</html>

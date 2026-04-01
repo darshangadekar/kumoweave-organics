@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toddler (2–5Y) — Kumoweave Organics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="overflow: hidden;">
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="logo.png" alt="Kumoweave Logo" class="preloader-logo">
+  </div>
+
+  <!-- Mobile Nav Drawer -->
+
+  <div class="mobile-nav">
+    <a href="new-arrivals.html">New Arrivals</a>
+    <a href="baby.html">Baby (0–2Y)</a>
+    <a href="toddler.html" class="active">Toddler (2–5Y)</a>
+    <a href="about.html">About</a>
+    <a href="journal.html">Journal</a>
+    <div style="margin-top: 20px; font-size: 1rem; color: var(--brand-secondary);">
+      Cart (<span id="mobile-cart-count">0</span>)
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="baby.html">Baby (0–2Y)</a></li>
+        <li><a href="toddler.html" class="active">Toddler (2–5Y)</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="journal.html">Journal</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-trigger">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <header style="padding: 160px 40px 80px; text-align: center; background: rgba(122, 92, 62, 0.03);">
+    <span class="label-small">Collection</span>
+    <h1 style="font-size: 4rem;">Toddler (2–5Y)</h1>
+    <p style="max-width: 600px; margin: 20px auto 0; opacity: 0.7;">Durable, breathable, and soft — playwear designed for toddlers on the move.</p>
+  </header>
+
+  <section class="products-section">
+    <div class="collections-grid">
+      <div class="product-card reveal" style="padding: 20px; text-align: center; background: white; border-radius: var(--radius-lg);">
+        <img src="toddler-playset.png" alt="Play Set" style="width: 100%; height: 350px; object-fit: cover;">
+        <h3 style="margin-top: 20px; font-size: 1.25rem;">Garden Play Set</h3>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin: 10px 0;">100% Organic Waffle Cotton</p>
+        <div style="font-weight: 600; font-size: 1.1rem; color: var(--brand-primary); margin-bottom: 20px;">₹1,449</div>
+        <button class="btn btn-primary" onclick="addToCart({id: 't1', name: 'Garden Play Set', price: 1449, img: 'toddler-playset.png'})">Add to Cart</button>
+      </div>
+
+      <div class="product-card reveal" style="padding: 20px; text-align: center; background: white; border-radius: var(--radius-lg);">
+        <img src="sage-sweater.png" alt="Stripe Sweater" style="width: 100%; height: 350px; object-fit: cover;">
+        <h3 style="margin-top: 20px; font-size: 1.25rem;">Sage Stripe Sweater</h3>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin: 10px 0;">Premium Knitwear</p>
+        <div style="font-weight: 600; font-size: 1.1rem; color: var(--brand-primary); margin-bottom: 20px;">₹1,599</div>
+        <button class="btn btn-primary" onclick="addToCart({id: 't2', name: 'Sage Stripe Sweater', price: 1599, img: 'sage-sweater.png'})">Add to Cart</button>
+      </div>
+      <div class="product-card reveal" style="padding: 20px; text-align: center; background: white; border-radius: var(--radius-lg);">
+        <img src="baby-onesie.png" alt="Oversized Linen Shirt" style="width: 100%; height: 350px; object-fit: cover;">
+        <h3 style="margin-top: 20px; font-size: 1.25rem;">Oversized Linen Shirt</h3>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin: 10px 0;">Lightweight Everyday Wear</p>
+        <div style="font-weight: 600; font-size: 1.1rem; color: var(--brand-primary); margin-bottom: 20px;">₹1,199</div>
+        <button class="btn btn-primary" onclick="addToCart({id: 't3', name: 'Oversized Linen Shirt', price: 1199, img: 'baby-onesie.png'})">Add to Cart</button>
+      </div>
+
+      <div class="product-card reveal" style="padding: 20px; text-align: center; background: white; border-radius: var(--radius-lg);">
+        <img src="gift-set.png" alt="Weekend Adventure Bundle" style="width: 100%; height: 350px; object-fit: cover;">
+        <h3 style="margin-top: 20px; font-size: 1.25rem;">Weekend Adventure Bundle</h3>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin: 10px 0;">3-Piece Set for Toddlers</p>
+        <div style="font-weight: 600; font-size: 1.1rem; color: var(--brand-primary); margin-bottom: 20px;">₹2,899</div>
+        <button class="btn btn-primary" onclick="addToCart({id: 't4', name: 'Weekend Adventure Bundle', price: 2899, img: 'gift-set.png'})">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Logo"></div>
+        <p style="opacity: 0.7; font-size: 0.9rem;">Kids-wear crafted with love from 100% GOTS-certified organic cotton. Gentle on little skin, kind to our planet.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="new-arrivals.html">New Arrivals</a></li>
+          <li><a href="baby.html">Baby (0–2Y)</a></li>
+          <li><a href="toddler.html">Toddler (2–5Y)</a></li>
+          <li><a href="new-arrivals.html">Cozy Knits</a></li>
+          <li><a href="new-arrivals.html">Gift Sets</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="about.html#gots">GOTS Certification</a></li>
+          <li><a href="about.html#sustainability">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="newsletter">
+        <h3>Join the Kumoweave Family</h3>
+        <p style="opacity: 0.7; font-size: 0.85rem; margin-bottom: 20px;">Exclusive drops, care tips & more.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!')">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div style="max-width: 1280px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); text-align: center; font-size: 0.75rem; opacity: 0.5;">
+      © 2026 Kumoweave Organics. All rights reserved. Made with organic love.
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
