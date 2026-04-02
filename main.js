@@ -20,7 +20,7 @@ function initPreloader() {
   window.addEventListener('load', () => {
     setTimeout(() => {
       preloader.classList.add('loaded');
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     }, 600);
   });
 }
@@ -61,7 +61,7 @@ function initMobileMenu() {
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('active');
     mobileNav.classList.toggle('active');
-    body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+    body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
   });
 
   // Close on link click
